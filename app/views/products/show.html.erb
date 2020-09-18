@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <% @shop.custom_fields.each do |field| %>
+    <strong> <%= field.label %>:</strong>
+    <%= @product.custom_fields[field.internal_name] %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_shop_product_path(@shop, @product) %> |
+<%= link_to 'Back', shop_products_path %>

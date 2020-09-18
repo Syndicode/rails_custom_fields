@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @custom_field.label %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @custom_field.description %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @custom_field.field_type %>
+</p>
+
+<p>
+  <strong>Intername name:</strong>
+  <%= @custom_field.internal_name %>
+</p>
+
+<%= link_to 'Edit', edit_shop_custom_field_path(@shop, @custom_field) %> |
+<%= link_to 'Back', shop_custom_fields_path %>

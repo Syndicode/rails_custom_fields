@@ -1,0 +1,37 @@
+<%= form_with(model: [@shop, custom_field], local: true) do |form| %>
+  <% if custom_field.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(custom_field.errors.count, "error") %> prohibited this custom_field from being saved:</h2>
+
+      <ul>
+      <% custom_field.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :field_type %>
+    <%= form.select(:field_type, CustomField.field_types.keys.map {|type| [type.humanize, type]}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :label %>
+    <%= form.text_field :label, id: :label %>
+  </div>
+
+  <div class="field">
+    <%= form.label :internal_name %>
+    <%= form.text_field :internal_name, id: :internal_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
